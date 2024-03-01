@@ -1,0 +1,59 @@
+---
+import "../styles/index.scss";
+import { ToastContainer } from "react-toastify";
+import { ViewTransitions } from "astro:transitions";
+import { SEO, type Props as SEOProps } from "astro-seo";
+
+import { siteConfig } from "@/utils";
+import ScrollToTop from "@/components/common/ScrollToTop";
+
+export interface Props extends SEOProps {
+  title: string;
+  keywords?: string[];
+}
+
+const {
+  title,
+  keywords = siteConfig.keywords,
+  description = siteConfig.description,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-mode="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <SEO
+      title={title}
+      description={description}
+      titleDefault={siteConfig.title}
+      titleTemplate={`%s | ${siteConfig.title}`}
+      extend={{
+        meta: [{ name: "keywords", content: keywords.join(",") }],
+      }}
+    />
+
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.png" />
+
+    <!-- For Window Tab Color -->
+    <meta name="theme-color" content="#0D1A1C" />
+    <meta name="msapplication-navbutton-color" content="#0D1A1C" />
+    <meta name="msapplication-navbutton-color" content="#0D1A1C" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0D1A1C" />
+
+    <meta name="theme-color" content="" />
+
+    <ViewTransitions />
+  </head>
+  <body>
+    <div style="display: contents;">
+      <slot />
+      <ScrollToTop client:idle />
+      <ToastContainer position="top-center" client:load />
+      <ScrollToTop />
+    </div>
+  </body>
+</html>
