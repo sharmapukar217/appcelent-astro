@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image"
-
 import brandLogo_1 from "@/assets/images/logo/p_logo_01.png"
 import brandLogo_2 from "@/assets/images/logo/p_logo_02.png"
 import brandLogo_3 from "@/assets/images/logo/p_logo_03.png"
@@ -10,7 +8,7 @@ import brandLogo_6 from "@/assets/images/logo/p_logo_06.png"
 interface DataType {
    id: number;
    page: string;
-   img: StaticImageData[];
+   img: any[];
 }
 
 const brand_data: DataType[] = [

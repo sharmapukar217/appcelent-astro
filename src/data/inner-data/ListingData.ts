@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 import propertyThumb_1 from "@/assets/images/listing/img_01.jpg";
 import propertyThumb_2 from "@/assets/images/listing/img_02.jpg";
 import propertyThumb_3 from "@/assets/images/listing/img_03.jpg";
@@ -35,10 +33,10 @@ interface DataType {
    tag_bg?: string;
    carousel_thumb: {
       id?:string;
-      img: StaticImageData;
+      img: any;
       active?: string;
    }[];
-   thumb?: StaticImageData;
+   thumb?: any;
    bg_img?: string;
    title: string;
    address?: string;

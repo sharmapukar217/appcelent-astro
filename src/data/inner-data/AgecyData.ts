@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 import agencyThumb_1 from "@/assets/images/logo/p_logo_13.png";
 import agencyThumb_2 from "@/assets/images/logo/p_logo_14.png";
 import agencyThumb_3 from "@/assets/images/logo/p_logo_15.png";
@@ -15,7 +13,7 @@ interface DataType {
    data_delay_time?: string;
    tag: string;
    category?: string;
-   thumb: StaticImageData;
+   thumb: any;
    title: string;
    rating: number;
    desc: string;

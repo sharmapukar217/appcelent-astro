@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 import projectThumb_1 from "@/assets/images/project/img_01.jpg"
 import projectThumb_2 from "@/assets/images/project/img_02.jpg"
 import projectThumb_3 from "@/assets/images/project/img_03.jpg"
@@ -33,7 +31,7 @@ import projectThumb_26 from "@/assets/images/project/img_26.jpg"
 interface DataType {
    id: number;
    page: string;
-   thumb: StaticImageData;
+   thumb: any;
    category: string;
    title?:string;
    date?:string;

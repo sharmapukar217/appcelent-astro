@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 import categoryIcon_1 from "@/assets/images/icon/icon_15.svg";
 import categoryIcon_2 from "@/assets/images/icon/icon_16.svg";
 import categoryIcon_3 from "@/assets/images/icon/icon_17.svg";
@@ -12,7 +10,7 @@ import categoryIcon_8 from "@/assets/images/icon/icon_22.svg";
 interface DataType {
    id: number;
    page: string;
-   icon?: StaticImageData;
+   icon?: any;
    text: string;
    item_bg_img?:string;
    data_delay_time?:string;
