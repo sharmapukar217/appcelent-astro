@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 import feedbackThumb_1 from "@/assets/images/media/img_01.jpg";
 import feedbackThumb_2 from "@/assets/images/media/img_02.jpg";
 import feedbackThumb_3 from "@/assets/images/media/img_03.jpg";
@@ -16,8 +14,8 @@ interface DataType {
    desc: string;
    title: string;
    country: string;
-   thumb: StaticImageData;
-   quote_icon: StaticImageData;
+   thumb: any;
+   quote_icon: any;
 }
 
 const feedback_data: DataType[] = [

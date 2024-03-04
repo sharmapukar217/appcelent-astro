@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 import serviceIcon_1 from "@/assets/images/icon/icon_69.svg";
 import serviceIcon_2 from "@/assets/images/icon/icon_70.svg";
 import serviceIcon_3 from "@/assets/images/icon/icon_71.svg";
@@ -7,7 +5,7 @@ import serviceIcon_3 from "@/assets/images/icon/icon_71.svg";
 interface DataType {
    id: number;
    page: string;
-   icon: StaticImageData;
+   icon: any;
    title: string;
    desc: string;
    data_delay_time?: string;
