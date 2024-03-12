@@ -1,12 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Dropdown from "./Dropdown";
 import UseShortedProperty from "@/hooks/useShortedProperty";
 import NiceSelect from "@/ui/NiceSelect";
 import ReactPaginate from "react-paginate";
 
-import featureIcon_1 from "@/assets/images/icon/icon_32.svg";
-import featureIcon_2 from "@/assets/images/icon/icon_33.svg";
-import featureIcon_3 from "@/assets/images/icon/icon_34.svg";
 import UseMounted from "@/hooks/UseMount";
 
 const select_type: string[] = [
@@ -23,7 +20,7 @@ const select_type: string[] = [
   "Industry",
 ];
 
-const ListingArea = () => {
+const ListingArea = ({ children }: { children: React.ReactNode }) => {
   const itemsPerPage = 9;
   const page = "listing_5";
   const isMounted = UseMounted();
@@ -124,137 +121,7 @@ const ListingArea = () => {
                 </div>
               </div>
 
-              <div className="row gx-xxl-5">
-                {currentItems.map((item: any) => (
-                  <div
-                    key={item.id}
-                    className="col-xxl-4 col-md-6 d-flex mb-80 lg-mb-50 wow fadeInUp"
-                    data-wow-delay={item.data_delay_time}
-                  >
-                    <div className="listing-card-one style-two shadow-none h-100 w-100">
-                      <div className="img-gallery">
-                        <div className="position-relative overflow-hidden">
-                          <div className="tag fw-500">{item.tag}</div>
-                          <a href="#" className="fav-btn tran3s">
-                            <i className="fa-light fa-heart"></i>
-                          </a>
-                          <div
-                            id={`carousel${item.carousel}`}
-                            className="carousel slide"
-                          >
-                            <div className="carousel-indicators">
-                              <button
-                                type="button"
-                                data-bs-target={`#carousel${item.carousel}`}
-                                data-bs-slide-to="0"
-                                className="active"
-                                aria-current="true"
-                                aria-label="Slide 1"
-                              ></button>
-                              <button
-                                type="button"
-                                data-bs-target={`#carousel${item.carousel}`}
-                                data-bs-slide-to="1"
-                                aria-label="Slide 2"
-                              ></button>
-                              <button
-                                type="button"
-                                data-bs-target={`#carousel${item.carousel}`}
-                                data-bs-slide-to="2"
-                                aria-label="Slide 3"
-                              ></button>
-                            </div>
-                            <div className="carousel-inner">
-                              {item.carousel_thumb.map((item: any, i: any) => (
-                                <div
-                                  key={i}
-                                  className={`carousel-item ${item.active}`}
-                                  data-bs-interval="1000000"
-                                >
-                                  <a
-                                    href="/listing_details_01"
-                                    className="d-block"
-                                  >
-                                    <img
-                                      src={item.img.src}
-                                      className="w-100"
-                                      alt="..."
-                                    />
-                                  </a>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="property-info pt-20">
-                        <a href="#" className="title tran3s">
-                          {item.title}
-                        </a>
-                        <div className="address">{item.address}</div>
-                        <ul className="style-none feature d-flex flex-wrap align-items-center justify-content-between pb-15 pt-5">
-                          <li className="d-flex align-items-center">
-                            <img
-                              src={featureIcon_1.src}
-                              alt=""
-                              className="lazy-img icon me-2"
-                            />
-                            <span className="fs-16">
-                              <span className="color-dark">
-                                {item.property_info.sqft}
-                              </span>{" "}
-                              sqft
-                            </span>
-                          </li>
-                          <li className="d-flex align-items-center">
-                            <img
-                              src={featureIcon_2.src}
-                              alt=""
-                              className="lazy-img icon me-2"
-                            />
-                            <span className="fs-16">
-                              <span className="color-dark">
-                                {item.property_info.bed}
-                              </span>{" "}
-                              bed
-                            </span>
-                          </li>
-                          <li className="d-flex align-items-center">
-                            <img
-                              src={featureIcon_3.src}
-                              alt=""
-                              className="lazy-img icon me-2"
-                            />
-                            <span className="fs-16">
-                              <span className="color-dark">
-                                {item.property_info.bath}
-                              </span>{" "}
-                              bath
-                            </span>
-                          </li>
-                        </ul>
-                        <div className="pl-footer top-border bottom-border d-flex align-items-center justify-content-between">
-                          <strong className="price fw-500 color-dark">
-                            $
-                            {item.price.toLocaleString(undefined, {
-                              minimumFractionDigits: 2,
-                              maximumFractionDigits: 2,
-                            })}{" "}
-                            {item.price_text && (
-                              <>
-                                / <sub>m</sub>
-                              </>
-                            )}
-                          </strong>
-                          <a href="#" className="btn-four">
-                            <i className="bi bi-arrow-up-right"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <div className="row gx-xxl-5">{children}</div>
 
               <div className="pt-5">
                 {isMounted && (

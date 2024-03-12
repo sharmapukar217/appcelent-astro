@@ -1,8 +1,18 @@
 ---
 import Wrapper from "@/layouts/Wrapper.astro";
-import ListingPage from "@/components/listing-page"
+import ListingPage from "@/components/listing-page";
+import fetchApi from "@/lib/strapi";
+import { type Property } from "@/@types/property";
+
+const properties = await fetchApi<Property>({
+  endpoint:
+    "properties?populate[features][populate]=true&populate[address][populate]=true&populate[images][fields][0]=name&populate[images][fields][1]=alternativeText&populate[images][fields][2]=caption&populate[images][fields][3]=url",
+});
+
+console.log(JSON.stringify(properties));
 ---
 
 <Wrapper title="Homepage">
-  <ListingPage client:idle />
+  <ListingPage properties={properties} client:idle />
+  {JSON.stringify(properties)}
 </Wrapper>
