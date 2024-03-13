@@ -16,7 +16,7 @@ const ListingPage = ({ properties }: { properties: Property }) => {
       <ListingArea>
         <div className="row gx-xxl-5">
           {properties?.data?.map((property) => (
-            <Listings property={property} />
+            <Listing property={property} />
           ))}
         </div>
       </ListingArea>
@@ -26,7 +26,7 @@ const ListingPage = ({ properties }: { properties: Property }) => {
   );
 };
 
-const Listings = ({ property }: { property: Property["data"][0] }) => {
+const Listing = ({ property }: { property: Property["data"][0] }) => {
   return (
     <div
       key={property.id}
@@ -36,7 +36,7 @@ const Listings = ({ property }: { property: Property["data"][0] }) => {
         <div className="img-gallery">
           <div className="position-relative overflow-hidden">
             <div className="tag fw-500">{property.attributes.type}</div>
-            <a href="#" className="fav-btn tran3s">
+            <a href={`/listing/${property.attributes.slug}`} className="fav-btn tran3s">
               <i className="fa-light fa-heart"></i>
             </a>
             <div id={`carousel${property.id}`} className="carousel slide">
@@ -69,7 +69,7 @@ const Listings = ({ property }: { property: Property["data"][0] }) => {
                     className={`carousel-item ${i === 0 ? "active" : ""}`}
                     data-bs-interval="1000000"
                   >
-                    <a href="/listing_details_01" className="d-block">
+                    <a href={`/listing/${property.attributes.slug}`} className="d-block">
                       <img
                         src={`${import.meta.env.STRAPI_URL}${item.attributes.url}`}
                         className="w-100"
@@ -83,7 +83,7 @@ const Listings = ({ property }: { property: Property["data"][0] }) => {
           </div>
         </div>
         <div className="property-info pt-20">
-          <a href="#" className="title tran3s">
+          <a href={`/listing/${property.attributes.slug}`} className="title tran3s">
             {property.attributes.name}
           </a>
           <div className="address">{property.attributes.address.address}</div>
@@ -141,7 +141,7 @@ const Listings = ({ property }: { property: Property["data"][0] }) => {
                 </>
               )}
             </strong>
-            <a href="#" className="btn-four">
+            <a href={`/listing/${property.attributes.slug}`} className="btn-four">
               <i className="bi bi-arrow-up-right"></i>
             </a>
           </div>

@@ -9,7 +9,7 @@ export type Property = {
       publishedAt: string;
       type: "Rent" | "Buy";
       slug: string;
-      description: Array<any>;
+      description: string;
       features: {
         id: number;
         total_rooms: number;
@@ -21,6 +21,18 @@ export type Property = {
       address: {
         id: number;
         address: string;
+      };
+      owner: {
+        data: {
+          id: number;
+          attributes: {
+            name: string;
+            contact_number: string;
+            createdAt: string;
+            updatedAt: string;
+            publishedAt: string;
+          };
+        };
       };
       images: {
         data: Array<{

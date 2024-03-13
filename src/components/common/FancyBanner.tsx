@@ -1,4 +1,3 @@
-"use client";
 import titleShape from "@/assets/images/shape/title_shape_06.svg";
 
 const FancyBanner = ({ style }: any) => {

@@ -1,8 +1,10 @@
 import { useRef, useEffect, type PropsWithChildren } from "react";
 
-import FancyboxPkg from "@fancyapps/ui";
-const { Fancybox: NativeFancybox } = FancyboxPkg;
+import * as NativeFancybox from "@fancyapps/ui";
+
+// const { Fancybox: NativeFancybox } = FancyboxPkg;
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import UseMounted from "@/hooks/UseMount";
 
 // TODO FIX THE TYPE
 // import { OptionsType } from "@fancyapps/ui/types/Fancybox/options";
@@ -13,6 +15,7 @@ interface Props {
 }
 
 const Fancybox = (props: PropsWithChildren<Props>) => {
+  const isMounted = UseMounted();
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -21,13 +24,17 @@ const Fancybox = (props: PropsWithChildren<Props>) => {
     const delegate = props.delegate || "[data-fancybox]";
     const options = props.options || {};
 
-    NativeFancybox.bind(container, delegate, options);
+    NativeFancybox.Fancybox.bind(container, delegate, options);
 
     return () => {
-      NativeFancybox.unbind(container);
-      NativeFancybox.close();
+      NativeFancybox.Fancybox.unbind(container);
+      NativeFancybox.Fancybox.close();
     };
   });
+
+  if (!isMounted) {
+    return null;
+  }
 
   return <div ref={containerRef}>{props.children}</div>;
 };
