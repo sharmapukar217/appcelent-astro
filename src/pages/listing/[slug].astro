@@ -1,0 +1,30 @@
+---
+export const prerender = false;
+
+import fetchApi from "@/lib/strapi";
+import { type Property } from "@/@types/property";
+
+import Wrapper from "../../layouts/Wrapper.astro";
+import ListingDetails from "@/components/listing-details";
+
+export async function GET(slug: string) {
+  return await fetchApi<Property>({
+    endpoint: `properties?populate[features][populate]=true&populate[owner][populate]=true&populate[address][populate]=true&populate[images][fields][0]=name&populate[images][fields][1]=alternativeText&populate[images][fields][2]=caption&populate[images][fields][3]=url&filters[slug]=${slug}`,
+  });
+}
+
+const data = await GET(Astro.params.slug || "");
+
+if (data.data && data?.data?.length < 1) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+
+console.log(JSON.stringify(data));
+---
+
+<Wrapper title={data?.data?.[0]?.attributes?.name || "Property"}>
+  <ListingDetails client:idle data={data?.data?.[0]!} />
+</Wrapper>

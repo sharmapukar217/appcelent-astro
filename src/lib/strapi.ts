@@ -19,7 +19,7 @@ export default async function fetchApi<T>({
   wrappedByKey,
   wrappedByList,
 }: Props): Promise<T> {
-  if (endpoint.startsWith('/')) {
+  if (endpoint.startsWith("/")) {
     endpoint = endpoint.slice(1);
   }
 
@@ -31,6 +31,7 @@ export default async function fetchApi<T>({
     });
   }
   const res = await fetch(url.toString());
+  console.log(url);
   let data = await res.json();
 
   if (wrappedByKey) {

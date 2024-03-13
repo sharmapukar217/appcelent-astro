@@ -24,35 +24,35 @@ const property_feature_list: DataType[] = [
          { title: "Status:", count: "For Sale", },
       ],
    },
-   {
-      id: 2,
-      title: "Utility Details",
-      feature_list: [
-         { title: "Heating:", count: "Natural gas", },
-         { title: "Intercom:", count: "Yes", },
-         { title: "Air Condition:", count: "Yes", },
-         { title: "Window Type:", count: "Aluminum frame", },
-         { title: "Fireplace:", count: "--", },
-         { title: "Cable TV:", count: "--", },
-         { title: "Elevator:", count: "Yes", },
-         { title: "WiFi:", count: "Yes", },
-         { title: "Ventilation:", count: "Yes", },
-      ],
-   },
-   {
-      id: 3,
-      title: "Outdoor Features",
-      feature_list: [
-         { title: "Garage:", count: "Yes", },
-         { title: "Parking:", count: "Yes", },
-         { title: "Garden:", count: "30m2", },
-         { title: "Disabled Access:", count: "Ramp", },
-         { title: "Swimming Pool:", count: "--", },
-         { title: "Fence:", count: "--", },
-         { title: "Security:", count: "3 Cameras", },
-         { title: "Pet Friendly:", count: "Yes", },
-      ],
-   }
+   // {
+   //    id: 2,
+   //    title: "Utility Details",
+   //    feature_list: [
+   //       { title: "Heating:", count: "Natural gas", },
+   //       { title: "Intercom:", count: "Yes", },
+   //       { title: "Air Condition:", count: "Yes", },
+   //       { title: "Window Type:", count: "Aluminum frame", },
+   //       { title: "Fireplace:", count: "--", },
+   //       { title: "Cable TV:", count: "--", },
+   //       { title: "Elevator:", count: "Yes", },
+   //       { title: "WiFi:", count: "Yes", },
+   //       { title: "Ventilation:", count: "Yes", },
+   //    ],
+   // },
+   // {
+   //    id: 3,
+   //    title: "Outdoor Features",
+   //    feature_list: [
+   //       { title: "Garage:", count: "Yes", },
+   //       { title: "Parking:", count: "Yes", },
+   //       { title: "Garden:", count: "30m2", },
+   //       { title: "Disabled Access:", count: "Ramp", },
+   //       { title: "Swimming Pool:", count: "--", },
+   //       { title: "Fence:", count: "--", },
+   //       { title: "Security:", count: "3 Cameras", },
+   //       { title: "Pet Friendly:", count: "Yes", },
+   //    ],
+   // }
 ];
 
 export default property_feature_list;

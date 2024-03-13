@@ -1,18 +1,18 @@
-import HeaderOne from "@/layouts/headers/HeaderOne"
-import ListingDetailsOneArea from "./ListingDetailsArea"
-import FancyBanner from "@/components/common/FancyBanner"
-import FooterFour from "@/layouts/footers/FooterFour"
+import HeaderOne from "@/layouts/headers/HeaderOne";
+import ListingDetailsOneArea from "./ListingDetailsArea";
+import FancyBanner from "@/components/common/FancyBanner";
+import FooterFour from "@/layouts/footers/FooterFour";
+import type { Property } from "@/@types/property";
 
-const ListingDetails = () => {
+const ListingDetails = ({data} : {data: Property['data'][0]}) => {
   return (
     <>
       <HeaderOne style={true} />
-      <ListingDetailsOneArea />
+      <ListingDetailsOneArea data={data}/>
       <FancyBanner />
       <FooterFour />
-      hi
     </>
-  )
-}
+  );
+};
 
-export default ListingDetails
+export default ListingDetails;
