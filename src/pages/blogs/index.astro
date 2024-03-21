@@ -1,0 +1,12 @@
+---
+import Wrapper from "@/layouts/Wrapper.astro";
+import Blogs from "@/components/blogs-page/Blogs";
+import HeaderOne from "@/layouts/headers/HeaderOne";
+import FooterFour from "@/layouts/footers/FooterFour";
+---
+
+<Wrapper title="Blogs">
+  <HeaderOne />
+  <Blogs client:idle />
+  <FooterFour />
+</Wrapper>

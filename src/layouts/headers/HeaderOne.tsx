@@ -1,4 +1,3 @@
-import { useState } from "react";
 import NavMenu from "./Menu/NavMenu";
 import LoginModal from "@/modals/LoginModal";
 
