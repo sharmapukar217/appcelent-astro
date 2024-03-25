@@ -2,101 +2,12 @@
 // import BlogComment from "../common-blog/BlogComment";
 // import BlogForm from "@/components/forms/BlogForm";
 
-import blogDetailsIcon from "@/assets/images/icon/icon_67.svg";
-import blogDetailsThumb_1 from "@/assets/images/blog/blog_img_16.jpg";
 import BlogSidebar from "../blogs-page/BlogSidebar";
 import type { BlogResponse } from "@/@types/blog";
 import { formatDate } from "@/utils/format-date";
 
-interface ContentType {
-  title_1: string;
-  title_2: string;
-  desc_1: JSX.Element;
-  desc_2: JSX.Element;
-  desc_3: JSX.Element;
-  desc_4: JSX.Element;
-  desc_5: JSX.Element;
-  desc_6: JSX.Element;
-  blog_details_list: string[];
-  icon: string[];
-}
 
-const content_data: ContentType = {
-  title_1: "Print, publishing qui visual ux layout mockups.",
-  title_2: "Easy Process for Buy an Apartments",
-  desc_1: (
-    <>
-      Tomfoolery crikey bits and bobs brilliant bamboozled down the pub amongst
-      brolly hanky panky, cack bonnet arse over tit burke bugger all mate bodge.
-      cillum dolore fugiat pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui official deserunt mollit anim id est
-      laborum.Suspendisse interdum consectetur libero id faucib nisl. Lacus vel
-      facilisis volutpat est velit egestas.
-    </>
-  ),
-  desc_2: (
-    <>
-      Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Sit
-      amet ris nullam eget felis. Enim praesent elementum facilisis leo.
-      Ultricies leo integer.
-    </>
-  ),
-  desc_3: (
-    <>
-      Quick solutions coupled with extraordinary nice performance—a
-      recommendation that&apos;s great.
-    </>
-  ),
-  desc_4: (
-    <>
-      One touch of a red-hot stove is usually all we need to avoid that kind of
-      discomfort in quis elit future. The same Duis aute irure dolor in
-      reprehenderit .
-    </>
-  ),
-  desc_5: (
-    <>
-      One touch of a red-hot stove is usually all we need to avoid that kind of
-      discomfort in quis future. The same Duis aute irure dolor in
-      reprehenderit. sunt in culpa qui official deserunt mollit anim id avoid
-      est laborum.
-    </>
-  ),
-  desc_6: (
-    <>
-      Tomfoolery crikey bits and bobs brilliant bamboozled down the pub amongst
-      brolly hanky panky, cack bonnet arse over tit burke bugger all mate bodge.
-      cillum dolore fugiat pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui official deserunt mollit anim Tempus imperdiet
-      nulla malesuada pellentesque elit eget gravida cum. Sit amet ris nullam
-      eget felis.
-    </>
-  ),
-  blog_details_list: [
-    "Find the problem first",
-    "Make research and find out the solution",
-    "Finalize the solution & apply.",
-  ],
-  icon: [
-    "fa-brands fa-whatsapp",
-    "fa-brands fa-x-twitter",
-    "fa-brands fa-instagram",
-    "fa-brands fa-viber",
-  ],
-};
 
-const {
-  title_1,
-  title_2,
-  desc_1,
-  desc_2,
-  desc_3,
-  desc_4,
-  desc_5,
-  desc_6,
-  blog_details_list,
-  icon,
-} = content_data;
 
 const BlogDetailsArea = ({ blog }: { blog: BlogResponse["data"][0] }) => {
   return (
