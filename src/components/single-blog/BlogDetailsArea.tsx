@@ -1,4 +1,3 @@
-"use client";
 // import BlogComment from "../common-blog/BlogComment";
 // import BlogForm from "@/components/forms/BlogForm";
 
