@@ -3,9 +3,11 @@ import BlogSidebar from "./BlogSidebar";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import UseMounted from "@/hooks/UseMount";
+import type { BlogResponse } from "@/@types/blog";
+import { formatDate } from "@/utils/format-date";
 
 
-const Blogs = () => {
+const Blogs = ({blogs}: {blogs: BlogResponse}) => {
   const mounted = UseMounted();
   const blog = inner_blog_data.filter((items) => items.page === "blog_1");
 
@@ -27,47 +29,44 @@ const Blogs = () => {
           <div className="row">
             <div className="col-lg-8">
               <div className="row gx-xxl-5">
-                {currentItems.map((item) => (
-                  <div key={item.id} className="col-md-6">
+                {blogs.data.map((item) => (
+                  <div key={item?.id} className="col-md-6">
                     <article className="blog-meta-two tran3s position-relative z-1 mb-70 lg-mb-40 wow fadeInUp">
-                      <figure
-                        className={`post-img position-relative m0 ${item.class_name}`}
-                      >
-                        <a href="/blog_details" className="date">
-                          {item.date}
-                        </a>
-                      </figure>
+                      <img src={`${import.meta.env.STRAPI_URL}${item.attributes.image.data.attributes.url}`} alt="blog-img" />
+                        {/* <a href={item.attributes.slug} className="date">
+                          {item.attributes.publishedAt}
+                        </a> */}
                       <div className="post-data">
                         <div className="post-info">
-                          <a href="/blog_details">{item.info_name}</a>{" "}
-                          {item.info_time} min
+                          <a href={ "/blogs/" + item.attributes.slug}>{item?.attributes.author}.</a>{" "}
+                          {formatDate(item.attributes.publishedAt)}
                         </div>
                         <div className="d-flex justify-content-between align-items-sm-center flex-wrap">
-                          <a href="/blog_details" className="blog-title">
-                            <h4>{item.title}</h4>
+                          <a href={item.attributes.slug} className="blog-title">
+                            <h4>{item.attributes.Title}</h4>
                           </a>
-                          <a href="#" className="btn-four">
+                          <a href={"/blogs/" + item.attributes.slug} className="btn-four">
                             <i className="bi bi-arrow-up-right"></i>
                           </a>
                         </div>
                       </div>
                       <div className="hover-content tran3s">
-                        <a href="/blog_details" className="date">
-                          {item.date}
+                        <a href={ "/blogs/" + item.attributes.slug} className="date">
+                          {new Date(String(item.attributes.publishedAt)).toLocaleDateString()}
                         </a>
                         <div className="post-data">
                           <div className="post-info">
-                            <a href="/blog_details">{item.info_name}</a>{" "}
-                            {item.info_time} min
+                            <a href={ "/blogs/" + item.attributes.slug} >jdfsfjhsgfh</a>{" "}
+                            5 min
                           </div>
                           <div className="d-flex justify-content-between align-items-sm-center flex-wrap">
-                            <a href="/blog_details" className="blog-title">
-                              <h4>{item.title}</h4>
+                            <a href={"/blogs/" + item.attributes.slug} className="blog-title">
+                              <h4>{item.attributes.Title}</h4>
                             </a>
                           </div>
                         </div>
                         <a
-                          href="/blog_details"
+                          href={"/blogs/" + item.attributes.slug}
                           className="btn-four inverse rounded-circle"
                         >
                           <i className="fa-thin fa-arrow-up-right"></i>

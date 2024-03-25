@@ -3,10 +3,20 @@ import Wrapper from "@/layouts/Wrapper.astro";
 import Blogs from "@/components/blogs-page/Blogs";
 import HeaderOne from "@/layouts/headers/HeaderOne";
 import FooterFour from "@/layouts/footers/FooterFour";
+import fetchApi from "@/lib/strapi";
+import type { BlogResponse } from "@/@types/blog";
+
+
+const blogs = await fetchApi<BlogResponse>({
+  endpoint:
+    "blogs?populate[image][fields][0]=name&populate[image][fields][1]=alternativeText&populate[image][fields][2]=caption&populate[image][fields][3]=url",
+});
+console.log(blogs)
 ---
+
 
 <Wrapper title="Blogs">
   <HeaderOne />
-  <Blogs client:idle />
+  <Blogs client:idle blogs={blogs} />
   <FooterFour />
 </Wrapper>
